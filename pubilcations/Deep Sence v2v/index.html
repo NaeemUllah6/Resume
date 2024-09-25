@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Migule Crespo</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <link rel="stylesheet" href="../../assets/css/main.css" />
+  <link rel="icon" href="../../images/coffee.png" type="image/png" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+  <noscript>
+    <link rel="stylesheet" href="../../assets/css/noscript.css" />
+  </noscript>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      corePlugins: {
+        preflight: false,
+      },
+    };
+  </script>
+</head>
+
+<body>
+  <div id="wrapper">
+    <main class="publicationMain">
+      <section class="publicationArticle">
+        <a href="/" class="goback">
+          <i class="fa-solid fa-arrow-left-long"></i>
+        </a>
+        <div class="text-center">
+          <div class="italic">
+            Optics Letters<!-- -->
+            -
+            <!-- -->2022
+          </div>
+          <div style="border-bottom: 1px solid gray; padding-bottom: 10px" class="text-[1.8rem]">
+            DeepSense-V2V: A Vehicle-to-Vehicle Multi-Modal Sensing, Localization, and Communications Dataset
+          </div>
+          <div class="text-xl flex justify-center gap-8 px-20 py-4">
+            <span><span>Joao Morais</span><span class="super" style="margin-left: 5px; white-space: nowrap">1,
+                *</span></span><span><a href="http://mcrespo.me">Gouranga Charan</a><span class="super"
+                style="margin-left: 5px; white-space: nowrap">1, *</span></span><span><a
+                href="http://giga.cps.unizar.es/~ajarabo/">Nikhil Srinivas</a><span class="super"
+                style="margin-left: 5px; white-space: nowrap">1</span></span><span><a
+                href="https://redo-sanchez.net/">Ahmed Alkhateeb</a><span class="super"
+                style="margin-left: 5px; white-space: nowrap">1</span></span>
+          </div>
+          <div class="flex gap-8 justify-center" style="margin-top: 2ex">
+            <span class="spanMobile"><span><span class="super" style="margin-right: 5px">1</span>
+                <span>Universidad de Zaragoza - I3A</span></span></span><span class="spanMobile"><span><span
+                  class="super" style="margin-right: 5px; font-size: 1">*</span>
+                <span>Joint first authors</span></span></span>
+          </div>
+          <!-- <div data-fancybox="gallery"
+            data-src="./gallery/Screenshot 2024-09-25 201149.png">
+            <img src="./gallery/Screenshot 2024-09-25 201149.png" alt=""
+              class="rounded-md w-full my-4" />
+          </div> -->
+        </div>
+        <figcaption>
+          <p class="italic" style="
+                text-align: justify;
+                text-justify: inter-character;
+                text-indent: 1.5rem;
+                margin: 0 0 0.5rem 0;
+              ">
+            <strong> Scene setup: </strong> The scene is hidden behind a
+            diffuser, with the scene being submerged in a scattering medium.
+            <strong> Reconstructions of experimental data: </strong> Each
+            column is a different scene. Top: images of the scenes behind the
+            diffuser. Middle: Lindell and Wetzstein reconstructions (CDT).
+            Bottom: our reconstructions using Phasor Fields. The higher
+            frequency of CDT is related to the deconvolution to compensate
+            scattering at the diffuser.
+          </p>
+        </figcaption>
+        <div class="resources_publication">
+          <h2>Resources</h2>
+          <a class="button_resources" href="data/nlos-scattering2022.pdf"><i
+              class="button_icon fa fa-file-pdf"></i><span> <!-- -->Paper (4.5 MB)<!-- --> </span>
+          </a>
+          <a class="button_resources" href="#Bibtex"><i class="button_icon fa fa-quote-right"></i><span>
+              <!-- -->Cite
+              <!-- -->
+            </span>
+          </a>
+        </div>
+        <h2 id="Abstract">Abstract</h2>
+        <p style="
+              text-align: justify;
+              text-justify: inter-character;
+              text-indent: 1.5rem;
+              margin: 0 0 0.5rem 0;
+            ">
+          High data rate and low-latency vehicle-to-vehicle (V2V) communication are essential
+          for future intelligent transport systems to enable coordination, enhance safety,
+          and support distributed computing and intelligence requirements. Developing effective
+          communication strategies, however, demands realistic test scenarios and datasets.
+          This is important at the high-frequency bands where more spectrum is available, yet
+          harvesting this bandwidth is challenged by the need for direction transmission
+          and the sensitivity of signal propagation to blockages. This work presents the
+          first large-scale multi-modal dataset for studying mmWave vehicle-to-vehicle
+          communications. It presents a two-vehicle testbed that comprises data from a
+          360-degree camera, four radars, four 60 GHz phased arrays, a 3D lidar, and
+          two precise GPSs. The dataset contains vehicles driving during the day and
+          night for 120 km in intercity and rural settings, with speeds up to 100 km
+          per hour. More than one million objects were detected across all images, from
+          trucks to bicycles. This work further includes detailed dataset statistics
+          that prove the coverage of various situations and highlights how this dataset
+          can enable novel machine-learning applications.
+        </p>
+        <h2 id="Abstract">Introduction</h2>
+        <p style="
+              text-align: justify;
+              text-justify: inter-character;
+              text-indent: 1.5rem;
+              margin: 0 0 0.5rem 0;
+            ">
+          Vehicle-to-vehicle (V2V) communication has become increasingly essential in intelligent transportation systems
+          (ITS)
+          for enabling vehicles to exchange critical information, enhancing safety, traffic efficiency, and the overall
+          driving experience
+          [1]. However, the current methods of V2V communication face
+          challenges with the increasing volume and complexity of data
+          being exchanged, which might limit the effectiveness of the
+          ITS [2]. This demand for higher data rates in V2V communication motivates the exploration of higher frequency
+          bands such
+          as millimeter wave (mmWave) and sub-terahertz (sub-THz)
+          frequencies. The mmWave/sub-THz frequency ranges offer
+          larger bandwidths, making them well-suited for supporting
+          the high-speed and data-intensive requirements of V2V communication systems [3]. Additionally, the
+          availability of large
+          antenna arrays and beamforming capabilities in mmWave/subTHz V2V communication systems enable robust and
+          efficient
+          communication, mitigating the effects of interference and
+          signal attenuation in dynamic and congested environments.
+          Adopting advanced wireless communication technologies in
+          V2V systems facilitates reliable data exchange between vehicles, even in high-speed scenarios, where rapid and
+          accurate
+          information dissemination is crucial for collision avoidance,
+          cooperative driving, and other vehicular applications.
+          The authors are with the School of Electrical, Computer, and Energy
+          Engineering, Arizona State University. Emails: {joao, gcharan, tvsrini1, alkhateeb}@asu.edu. This work is
+          supported by the National Science Foundation
+          under Grant No. 2048021.
+          Further, future wireless systems, specifically in 6G and
+          beyond, are envisioned to incorporate communication, multimodal sensing, and positioning capabilities as
+          integral components [4], [5]. These systems are anticipated to implement coexisting communication and sensing
+          functionalities or leverage
+          one to enhance the other, accentuating the growing importance
+          of the synergy between multi-modal sensing and communication. This synergy has been driving key research
+          directions
+          such as multi-modal sensing-aided communication [6]–[14]
+          and integrated sensing and communication [15]. Moreover,
+          with the rise of autonomous vehicles, there is an increasing focus on equipping vehicles with multiple
+          sensors, such
+          as radar, LiDAR, and cameras, enabling vehicles to gather
+          comprehensive situational awareness. Incorporating co-located
+          communication and sensing functionalities will likely be the
+          key to enabling reliable and efficient V2V communication.
+          Multi-modal sensing capabilities can help navigate complex
+          and dynamic scenarios on the road effectively. A detailed perception of the environment can enhance V2V
+          communication
+          reliability, facilitate advanced decision-making algorithms, and
+          improve overall safety and efficiency in complex and dynamic
+          environments. Despite these benefits, fully realizing efficient
+          V2V communication presents challenges, particularly when
+          dealing with mmWave/sub-THz frequency communication.
+          The realization of efficient mmWave vehicle-to-vehicle
+          communication benefits from (i) the development of sophisticated detection and tracking algorithms and (ii)
+          the resolution
+          of the unique challenges posed by mmWave/sub-THz communication systems. First, the development of
+          sophisticated
+          detection and tracking algorithms can support directional
+          beamforming and blockage detection/tracking in mmWave
+          systems. Second, the utilization of mmWave/sub-THz frequencies introduces challenges. For instance, adjusting
+          the narrow
+          beams in these communication systems with large antenna
+          arrays is typically associated with large training overhead that
+          scales with the number of antennas, making it challenging
+          to support high-mobility applications such as V2V communication. Further, line-of-sight (LOS)link blockages
+          such as
+          buildings and other vehicles can disrupt communication and
+          challenge the link reliability. Although several multi-modal
+          datasets [16]–[18] recently have been made available targeting
+          autonomous vehicles, the development of large-scale datasets
+          designed explicitly for V2V communication is lacking. To
+          address these challenges, it is crucial to create comprehensive
+          multi-modal sensing-aided V2V communication datasets that
+          capture real-world scenarios, enabling researchers to design
+          and evaluate algorithms and protocols for this specific context.
+          Motivated by the need for high-quality datasets specifically
+        </p>
+
+        <p></p>
+        <h2 id="Figures" class="py-4">Figures</h2>
+        <div data-fancybox="gallery" data-src="./gallery/Screenshot 2024-09-25 201149.png">
+          <img style="height: 300px; width:100%;" src="./gallery/Screenshot 2024-09-25 201149.png" alt=""
+            class="rounded-md w-full my-4" />
+        </div>
+        <p style="
+        text-align: justify;
+        text-justify: inter-character;
+        text-indent: 1.5rem;
+        margin: 0 0 0.5rem 0;
+      ">
+          tailored for V2V communication research, we present the
+          DeepSense 6G V2V dataset, the world’s first large-scale
+          real-world multi-modal sensing and communication dataset
+          designed to facilitate V2V communication research and algorithm development. The DeepSense 6G V2V dataset is
+          (i) a large-scale dataset of more than 125k data points,
+          (ii) based on real-world measurements. The dataset comprises co-existing and synchronized multi-modal sensing
+          and
+          communication data and is organized in a collection of 4
+          scenarios captured from a diverse range of driving conditions
+          and environments. These scenarios encompass urban, suburban, and rural highway settings, incorporating
+          different traffic
+          densities and road and weather conditions.
+          The DeepSense V2V dataset provides several key features
+          that are essential for advancing V2V communication research:
+          • Co-existing sensing and communication: The
+          DeepSense V2V dataset consists of a large-scale
+          collection of V2V mmWave communication data
+          integrated with multi-modal sensing information. This
+          unique combination empowers researchers to gain
+          comprehensive insights into V2V scenarios, enabling
+          them to explore the intricate interactions between sensor
+          modalities and communication systems.
+          • Co-located 360-degree sensor coverage: The DeepSense
+          V2V dataset leverages a diverse sensor suite, including cameras, radar, LiDAR, positioning sensors, and
+          mmWave communication devices, to provide a 360-
+          degree coverage around the vehicle. This integration
+          of different sensor modalities enables a comprehensive
+          understanding of the surrounding environment, capturing
+          rich data from visual observations, object detection, depth
+          perception, positioning, and wireless communication dynamics. Moreover, the co-location of the sensors allows
+          researchers to correlate sensory data better.
+          • Real World diverse scenarios: The DeepSense V2V
+          dataset is collected in real-world environments, providing
+          a realistic representation of V2V communication scenarios in different locations, weather conditions, lighting
+          settings, and traffic conditions. The dataset accurately
+          captures real-world complexities and incorporates varying traffic densities, road conditions, and
+          environmental
+          influences.
+          • Large-scale data: Developing deep learning solutions
+          that are scalable and robust to data distribution shifts (due
+          to changes in the environment or deployment) requires the
+          availability of a large-scale dataset. The DeepSense V2V
+          dataset provides a large-scale collection of multi-modal
+          data samples, comprising more than 125k data points
+          across four scenarios. This dataset’s large-scale nature can
+          help develop and evaluate advanced algorithms such as
+          generalizability, robustness to distribution shift, etc.
+          This paper presents a detailed description of the DeepSense
+          6G V2V dataset, including its acquisition methodology, data
+          formats, available scenarios, and annotations. Furthermore, we
+          provide example use cases and highlight potential applications
+          of the dataset in V2V communication research and algorithm
+          development.
+          II. LITERATURE REVIEW
+          In recent years, publicly available datasets [16]–[26], [28]–
+          [30] have played a significant role in advancing the development of autonomous vehicle technologies. A summary
+          of some
+          of these key datasets is provided in Table I. These datasets
+          typically include data from various sensors, such as cameras,
+          LiDARs, and GPS/IMU. They are often used for tasks such as
+          object detection and segmentation, scene understanding, and
+          localization and mapping. The KITTI dataset [20], with over
+          22 scenes, has been widely used for testing machine learning
+          algorithms for vision tasks, such as object detection, using
+          LiDAR and camera data. It provides 2D and 3D annotation
+          data and has about 80k 2D and 3D bounding boxes. The H3D
+          dataset [25] includes 160 crowded scenes with 27k frames,
+        </p>
+        <div style="display: flex; gap: 20px;">
+          <div>
+            <div data-fancybox="gallery" data-src="./gallery/Screenshot 2024-09-25 201209.png">
+              <img style="height: 300px; width:100%;" src="./gallery/Screenshot 2024-09-25 201209.png" alt=""
+                class="rounded-md w-full my-4" />
+            </div>
+          </div>
+          <div>
+            <div data-fancybox="gallery" data-src="./gallery/Screenshot 2024-09-25 201228.png">
+              <img style="height: 300px; width:100%;" src="./gallery/Screenshot 2024-09-25 201228.png" alt=""
+                class="rounded-md w-full my-4" />
+            </div>
+          </div>
+        </div>
+
+        <p style="
+        text-align: justify;
+        text-justify: inter-character;
+        text-indent: 1.5rem;
+        margin: 0 0 0.5rem 0;
+      ">
+          vehicle and a phased array mounted on a tripod. A schematic
+          of the dimensions of the V2V box and its position in the car
+          is shown in Figure 3. This section describes the sensors that
+          generated the data in this dataset and the collection context in
+          which data was acquired.
+          Sensor Suite: It comprises different sensors with different
+          functions and limitations, as well as different sampling times
+          and physical interface requirements (i.e., for power and connectivity). All non-communication sensors - the
+          four
+          radars,
+          the 3D lidar, the 360º camera, and the two GPSs - operate in
+          continuous data acquisition mode with a predefined sample
+          rate. This is not the case with the mmWave beam power
+          collection, where the receiver radio and phased arrays are
+          programmatically triggered to collect a sample every 100 ms.
+          A beam power sample consists of a sweep of the 64 beams
+          spanning -45 to +45 degrees in azimuth and measuring the
+          received power in each of those beams. This 64-valued power
+          vector is our unitary sample for communications.
+          Besides the mmWave beam powers, the testbed comprises
+          2 GPSs using the L1 and L2 bands for higher accuracy - the
+          horizontal accuracies are always within a meter of the true,
+          according to manufacturer information and horizontal dilution
+          measures returned by the device. The testbed also holds a 360º
+          video camera, which is used to export four 90º views and
+          two 180º views around the car, effectively covering all angles
+          and emulating the existence of multiple cameras around the
+          vehicle. The single lidar in the testbed creates a 32 thousandpoint 3D point cloud with a maximum range of 200
+          meters.
+          In terms of range, the configurations of the four radars allow
+          more than 200 maximum distance, but factors like clutter and
+          ADC resolution prevent such ranges in realistic road situations.
+          More information on the sensors, like each sample rate, the
+          location of the sensors in each unit, specific resolutions, and
+          configurations, can be consulted in Table II.
+          Collection Procedure: The data was acquired in the following way. First, all the sensors are initialized at
+          the
+          start of
+          collecting data. The mmWave power captured by the box in
+          unit 1 comes from an omnidirectional transmitter in car/unit
+          2. This transmitter is attached to a tripod and is manually
+          rotated to guarantee power at the receiver (unit 1). The system
+          is capable of displaying the power received in each beam in
+          real time. This monitoring capability is used mainly to start
+          vehicle movement once a received power vector is visually
+          verified. The trajectory is coarsely planned ahead of time. The
+          two vehicles attempt to stay relatively close throughout the
+          30 30
+          30 30
+          All Dimensions are in cm
+          40.5 30.5 62.6
+          30.5
+          30.5
+          30.5
+          40.5 62.6
+          0 100
+          cm
+          215.5
+          200
+          145.5
+          0 100 200 300 400 500
+          462
+          cm
+          0 100 200
+          cm
+          11.75 189.25
+          Fig. 3. CAD design with dimensions of V2V box placement on car.
+          collection such that the received power in the optimum beam
+          is higher than the noise floor. As the distance grows, the blockages also become more likely. Nonetheless, in
+          LoS
+          conditions,
+          the received power in the best beam is distinguishable from
+          noise over 500-meter distances. This distance is more likely
+          achieved in V2I situations. For example, in a V2I situation,
+          the box can play the role of a basestation or be placed in
+          the car to communicate with a static unit that acts as the BS.
+          Effectively, the testbed described here can be used in a range
+          of V2X applications.
+          B. Data Processing
+          The intermediate stage of DeepSense scenario creation is
+          data processing. While DeepSense Collection deals with data
+          acquisition from sensors, often involving manufacturer-specific
+          caveats, DeepSense Processing deals more generally with
+          processing data formats independently of the sensor they come
+          from. The data processing stage consists of two major phases:
+          • Phase 1: converts data from the sensors of all modalities
+          in timestamped samples. For example, a data capture with
+          the lidar sensor is usually saved in a single file unsuitable
+          for proper data synchronization. This phase takes care of
+          extracting all samples and metadata for the sensor-specific
+          data format and organizes them in clear CSVs. It may
+          further interpolate data points (currently only in GPS).
+          • Phase 2: filters, organizes, creates sequences of continuous data acquisition, and synchronizes the
+          extracted data
+          into a processed DeepSense scenario.
+          Phase 1 processes different modalities in parallel, with specific
+          steps tailored to each modality. For instance, GPS samples in
+          the NMEA protocol format require different processing than
+          video data from a 360º camera. While detailed descriptions
+          of Phase 1 are beyond the scope of this discussion, it is
+          essential to note that data and metadata are extracted from
+          their original formats into a common structure suitable for
+          ingestion and synchronization in Phase 2. Phase 2, unlike
+          Phase 1, processes data sequentially and is agnostic to data
+          formats. This phase focuses on data synchronization, filtering,
+          sequencing, labeling, and compression. This discussion will
+          primarily concentrate on the functions of Phase 2.
+        </p>
+        <div data-fancybox="gallery" data-src="./gallery/Screenshot 2024-09-25 201248.png">
+          <img src="./gallery/Screenshot 2024-09-25 201248.png" alt="" class="rounded-md w-full my-4" />
+        </div>
+        <h2 id="visualization">Data Visualization</h2>
+        <p style="
+        text-align: justify;
+        text-justify: inter-character;
+        text-indent: 1.5rem;
+        margin: 0 0 0.5rem 0;
+      ">
+          Data Visualization provides significant value in several
+          fronts: dataset interpretability and understanding, fast identification of the samples of interest, easier
+          recognition of propagation phenomena, like reflections, blockages, large distances
+          radio transmission, and easier spotting of adverse sensor conditions, such as hard visibility from light or
+          weather and excessive radar clutter. To enable these advantages, the DeepSense
+          scenario creation pipeline leverages a data visualization user
+          interface (UI) in the DeepSense Viewer library. We use this UI
+          to verify the individual stages of data processing and to render
+          a final scenario video that synchronizes all processed data.
+          An example of a scenario video is depicted in Figure 4. This
+          figure shows all modalities present in the dataset, including
+          both units. Some modalities are normalized only to facilitate
+          the visualization, namely by assuring relevant features are not
+          hidden by ill-defined scales or less-clear colormaps. The data
+          displayed in each frame of the video is from the same time
+          instant and corresponds to one row of the indexing CSV.
+          <br><strong>Scenario videos:</strong> Using the user interface built within
+          the DeepSense Viewer module, we render a video for each
+          scenario where data is displayed across time. In our experience, this video makes data easy to navigate and
+          allows the
+          researcher to find the moments of interest. These videos are
+          rendered at four times the real-world speed to allow the user
+          to visualize large portions of the dataset quickly. YouTube
+          allows a 0.25x speed control that will bring the speed back
+          to the real world, and for finer controls, the user can use
+          keyboard shortcuts to navigate the video frame by frame -
+          for this reason, the video is rendered to have a different
+          sample in each frame. These videos can be found on the
+          web page of the V2V DeepSense Scenarios (i.e., Scenarios36-
+          39).In this paper, however, we will show the variability and
+          reach of the proposed dataset differently from videos. In the
+          following section, we show interesting patterns and statistics
+          that researchers can exploit for developing machine learning
+          algorithms for V2V communications
+
+        </p>
+
+        <h4 style="font-weight: bold;">Dataset Statistics</h4>
+        <p style="
+        text-align: justify;
+        text-justify: inter-character;
+        text-indent: 1.5rem;
+        margin: 0 0 0.5rem 0;
+      ">
+          A useful dataset with wide applicability in wireless communications should contain substantial variability
+          while being
+          accurate and consistent. This section shows many statistics
+          about the location and speed of the vehicles during the
+          data collection in Section IV-A. Then it delves into how
+          received power relates to distance in Section IV-B to prove the
+          consistency of data. Subsequently, mmWave and GPS data are
+          again related when we display beam distributions and position
+          distribution across time in IV-C, showing that the direction of
+          the incoming signal strongly correlates with the beam. This
+          should be because LoS is the predominant link status during
+          collection. Then, Section IV-D shows the results obtained
+          from applying machine vision detection and classification
+          approaches to the visual data. This section illustrates the visual
+          diversity in the dataset by showing a high volume of roadrelated objects identifiable throughout the dataset.
+
+        </p>
+        <div class="row">
+          <div class="d-inline">
+            <div data-fancybox="gallery" data-src="./gallery/Screenshot 2024-09-25 201306.png">
+              <img style="width: 100% ; height:400px" src="./gallery/Screenshot 2024-09-25 201306.png" alt=""
+                class="rounded-md w-full my-4" />
+            </div>
+          </div>
+          <div class="d-inline">
+            <div class="" data-fancybox="gallery" data-src="./gallery/Screenshot 2024-09-25 201316.png">
+              <img style="width:100%; height:400px" src="./gallery/Screenshot 2024-09-25 201316.png" alt=""
+                class="rounded-md w-full my-4" />
+            </div>
+          </div>
+        </div>
+        <p style="
+       text-align: justify;
+       text-justify: inter-character;
+       text-indent: 1.5rem;
+       margin: 0 0 0.5rem 0;
+     ">
+          wireless communications but also GPS, Lidar, and Radar. In
+          Figure 5, we illustrate the locations of the receiver captured
+          by the GPS (undersampled by a factor of 100 to facilitate
+          readability), along with other macro statistics of the data
+          collection. Scenarios 36 and 37 are collected in long drives
+          between cities, targeting long travels, while Scenarios 38
+          and 39 are more oriented to emulate short urban commutes,
+          so data is predominantly inside cities. For this reason, we
+          call Scenarios 36 and 37 inter-city scenarios and 38 and 39
+          urban scenarios. The difference is corroborated by the traveled
+          distance and average speed. While Scenarios 36 and 37 have
+          long-distance travel at relatively high average speeds, 38 and
+          39 traveled less at a lower speed because of speed limits within
+          cities. We further look into speed distributions in Figure 6.
+          Furthermore, we include information like the lighting and
+          weather conditions relevant to accessing the capabilities of
+          cameras versus lidars and radars. For completeness’ sake, the
+          time of the first and last samples are included to describe the
+          span of the collection. Note, however, that during the data
+          collection, there are intermittent pauses in the acquisition of
+          data. This justifies why the span of the collection and the
+          filtered duration of the collection often have different numbers,
+          with the former bigger than the latter. Some reasons for such
+          pauses can be associated with hardware limitations, like the
+          need to change batteries in the 360 camera, or they can be
+          associated with errors in the collection where cars got too far
+          apart and the signal got interrupted for a long time, or when
+          one of the sensors had an error and did not acquire data for
+          some time. We opt not to include samples where all modalities
+          are not present.
+          Speed distributions can tell the diversity of vehicle movement speeds in the dataset. Moreover, given that the
+          speed
+          Fig. 6. Speed cumulative distribution of vehicle 1 with the indication of the
+          speed limits (in mph) and the type of road that matches the interval of speeds.
+          limits were closely followed during data collection, we can
+          further extrapolate what kind of roads the vehicles were
+          on from their speed. Information on the type of roads is
+          relevant because it tells what kind of objects and phenomena
+          we expect to find in those samples. Figure 6 shows each
+          scenario’s cumulative distributions of speeds. We can observe
+          that the intercity / rural scenarios (36 and 37) have a more
+          flat distribution with contributions from higher speeds than
+          the urban scenarios (38 and 39). Higher speeds come from
+          driving in free-ways, and very low speeds result from traffic
+          lights, intersections, and stop signs, characteristics of dense
+          urban mobility. We also indicate the speed limit regulations in
+          Arizona, USA, in miles per hour. This information allows us to
+          estimate, for example, that the car in Scenario 38 was stopped
+          in traffic lights for over 20% of the time and that the car
+          in Scenario 39 was driven in alleys or in residential/business
+          districts for about 50% of the time.
+          B. Inter-vehicle Distance and Received Power
+          The distance between the receiver and transmitter and the
+          received power in the optimum beam are closely related to
+          the radio propagation theory of a LoS link. Since this dataset
+          uses mmWave frequencies, which require a LoS in most cases,
+          this dataset should reflect the power-distance relation. We
+          show this relation across all scenarios by charting in Figure 7
+          the distance (or, more accurately, the inverse of the distance
+          square) and the received power. The figure shows a strong
+          correlation between distance and received power. But there
+          also are cases where the correlation is broken (e.g., from
+          sample 7500 to 8100 of Scenario 36) due to blockage and
+          NLoS. Furthermore, it should be noted that the powers present
+          in this dataset are not in Watts. We acquire baseband powers
+          by computing the square of the amplitude of the baseband
+          samples. Accurately measuring received powers at the antenna
+          requires a difficult calibration process with both the receiver
+          and transmitter. Instead, we attempted to perform data collection always within the linear regions of all
+          components. As
+          such, the relation between distance and received power should
+          hold. This is suggested by the results in Figure 7.
+        </p>
+        <div class="" data-fancybox="gallery" data-src="./gallery/Screenshot 2024-09-25 201330.png">
+          <img style="width:100%; height:200px" src="./gallery/Screenshot 2024-09-25 201330.png" alt=""
+            class="rounded-md w-full my-4" />
+        </div>
+
+        <h4 style="font-weight: bold;">. Beam Distributions and GPS Positions
+        </h4>
+        <p style="
+        text-align: justify;
+        text-justify: inter-character;
+        text-indent: 1.5rem;
+        margin: 0 0 0.5rem 0;
+      ">
+          One differentiation factor of this dataset is that it includes
+          beam information. Accordingly, we include Figure 8 that
+          shows variations in the optimal beam across time and how
+          they contribute to the overall beam density distribution. The
+          figure also shows interesting phenomena. For example, given
+          that most propagation in mmWave communications happens
+          in LoS, we observe a continuous transition between beam
+          indices. If beam continuity is interrupted, it can only be
+          because of two reasons: i) the data collection was interrupted
+          and the cars restarted in different positions, in which case
+          we indicate that by changing sequences, since each sequence
+          marks a continuous collection; ii) the second reason is when
+          the cars get sufficiently far way NLoS or blockage.
+          The visualization in Figure 8 also allows us to identify
+          particular phenomena we might be interested in studying.
+          Moreover, we color the beams from each panel with different
+          colors; therefore, when we see that when a color changes
+          (between indices 63/64, 127/128, and 191/192), it means a
+          different panel or array is selected at the device (car). Also,
+          in all scenarios, the beam distribution is concentrated in the
+          middle of the front and back arrays. This is intuitive because
+          two cars rarely spend long periods of time at the side of each
+          other, but rather long times in front or at the back of each other.
+          This is why there are long periods where the optimal beam
+          lies in the middle of the front and back arrays (respectively
+          colored in blue and green). We can also spot overtakes when
+          we see a transition between front and back arrays, passing
+          through the side arrays (colored in orange and red).
+          Beam and Relative Position Densities: It is essential to
+          highlight the relation between beams and positions. We already
+          showed this relation by relating the distance between the
+          vehicles and the received power in Figure 7. Now we highlight
+          with respect to angle. Figures 9 and 10 show the distributions
+          of beams in angle and relative positions between the two cars.
+          Although it is not perfect, we see a strong correlation between
+          the two. The relation is not perfect because of NLoS events
+          and because the relative position is not always equivalent to the
+          variable that should correlate perfectly with the optimal beam
+          direction, the angle of arrival (AoA). Those situations happen
+          when the receiver vehicle has a different orientation than the
+          transmitter vehicle, thus changing the arrival angle without
+          changing the relative position computed via GPS positions.
+          In Section VI, we further augment our estimation of AoA to
+          relate with beam choice more accurately. In the figure, we also
+          see that the predominant beam directions and relative positions
+          agree with the tendency for vehicles to drive in front or behind
+          each other.
+          D. Machine Vision and Image Detection
+          Modern cars, especially autonomous and semi-autonomous,
+          already have cameras for several driving-related functions.
+          To aid communications, for autonomous driving purposes,
+          simply for security reasons or to increase the understanding
+          of the environment, the content captured by cameras can be
+          very useful. As such, we present in Figure 11 what a pretrained state-of-the-art image model, YOLOv8 [35], detects
+          when enabled in detection mode. We executed the model to
+          detect and classify objects in all 180º images of the dataset.
+          These images were rendered from the 360º camera depicting
+          the front and the back of the vehicle, totaling more than 250
+          thousand images. Figure 12 illustrates the results calibrated
+          to remove detections of our own car. The results indicate
+          that most objects detected are cars, traffic lights, trucks, and
+          people. Having presented several dataset statistics relevant
+          to its application, in the next section, we describe possible
+          applications of the V2V dataset.
+          V. ENABLED APPLICATIONS
+          This section discusses the diverse applications enabled by
+          the DeepSense 6G V2V dataset, spanning wireless communication, vehicular localization, and autonomous sensing applications. The multi-modal dataset provides invaluable resources
+          for enhancing beamforming, predicting blockages, improving positioning systems, and developing efficient autonomous
+          sensing algorithms. These applications highlight the wideranging impact of our dataset in advancing V2V communications and autonomous vehicle technologies.
+          A. Wireless Communication Applications
+          This section presents two examples of V2V wireless communication applications enabled by multi-modal sensing provided as part of the DeepSense 6G V2V dataset.
+          Beamforming and Beam Tracking: To meet the high data
+          rate demands of V2V communication, it is crucial to equip
+          these systems with mmWave/THz transceivers, which require
+          large antenna arrays and narrow directive beams to ensure sufficient signal-to-noise ratio. However, adjusting these narrow
+          beams comes with a significant training overhead that scales
+        </p>
+        <div class="" data-fancybox="gallery" data-src="./gallery/Screenshot 2024-09-25 201407.png">
+          <img style="width:100%; height:400px" src="./gallery/Screenshot 2024-09-25 201407.png" alt=""
+            class="rounded-md w-full my-4" />
+        </div>
+        <p style="
+        text-align: justify;
+        text-justify: inter-character;
+        text-indent: 1.5rem;
+        margin: 0 0 0.5rem 0;
+      ">
+      Optimal beam across time and corresponding beam distribution for all Scenarios show a tendency of vehicles driving in front or behind each other.
+      Different colors represent beam indices on different phased arrays to provide panel-switching context information. Interruptions are due to sequence changing
+      (see Section III-B) or blockage due to other vehicles. In low SNR regimes, e.g., near sample 20000 of Scenario 36, the optimal beam becomes ambiguou    </p>
+      <div class="" data-fancybox="gallery" data-src="./gallery/Screenshot 2024-09-25 201420.png">
+        <img style="width:100%; height:150px" src="./gallery/Screenshot 2024-09-25 201420.png" alt=""
+          class="rounded-md w-full my-4" />
+      </div>
+      <p style="
+      text-align: justify;
+      text-justify: inter-character;
+      text-indent: 1.5rem;
+      margin: 0 0 0.5rem 0;
+    ">
+    with the number of antennas, posing challenges for supporting high-mobility V2V applications. Additionally, the highly
+    mobile nature of V2V communication necessitates frequent
+    updates to the optimal beam index that further increase this
+    beam training overhead. The high mobility-induced frequent
+    beam switching makes it difficult for these systems to meet
+    future wireless communication application requirements, like
+    Fig. 10. Relative orientation across angular space for all Scenarios.
+    low latency and high reliability. Delving deeper into the beam
+    selection process reveals the following insights: Firstly, in
+    mmWave/THz systems, beamforming is directional, which
+    means that the optimal beam indices depend on the relative
+    position of the transmitter and receiver. Secondly, objects in
+    the wireless environment, whether stationary or moving, can
+    affect the availability of the line-of-sight path and alter the
+  </p>
+
+        <div style="display: flex; gap:10px; justify-content:center; justify-items:center; ">
+          <div class="" data-fancybox="gallery" data-src="./gallery/Screenshot 2024-09-25 201438.png">
+            <img style="width:100%; height:400px" src="./gallery/Screenshot 2024-09-25 201438.png" alt=""
+              class="rounded-md w-full my-4" />
+          </div>
+          <div class="" data-fancybox="gallery" data-src="./gallery/Screenshot 2024-09-25 212130.png">
+            <img style="width:100%; height:auto" src="./gallery/Screenshot 2024-09-25 212130.png" alt=""
+              class="rounded-md w-full my-4" />
+          </div>
+        </div>
+        <!-- <div class="lg:columns-3 columns-2 gap-2 overflow-hidden">
+
+          <figure data-fancybox="gallery"
+            data-src="https://mcrespo.me/publications/nlos-scattering-media/figures/setup_productionX.png"
+            data-caption="Scene setup. The scene is hidden behind a diffuser, with the scene being submerged in a scattering medium">
+            <img src="https://mcrespo.me/publications/nlos-scattering-media/figures/setup_productionX.png" alt=""
+              class="rounded-md w-full" />
+          </figure>
+          <figure data-fancybox="gallery"
+            data-caption="Reconstructions of experimental data. Each column is a different scene. Top: images of the scenes behind the diffuser. Middle: Lindell and Wetzstein reconstructions (CDT). Bottom: our reconstructions using Phasor Fields. The higher frequency of CDT is related to the deconvolution to compensate scattering at the diffuser."
+            data-src="https://mcrespo.me/publications/nlos-scattering-media/figures/figure6.png">
+            <img src="https://mcrespo.me/publications/nlos-scattering-media/figures/figure6.png" alt=""
+              class="rounded-md w-full" />
+          </figure>
+          <figure data-fancybox="gallery"
+            data-src="https://mcrespo.me/publications/nlos-scattering-media/figures/figure3.png"
+            data-caption="Reconstructions of the Z-LETTER scene. a) scene with no scattering media. b) reconstructions with scattering media of varying extinction µt (in m−1) and single scattering albedo α. c) reconstructions with scattering media of fixed extinction µt = 1 m−1, varying scattering albedo α, and phase function’s anisotropy g. Phasor Fields is able to reconstruct the scene even in the presence of highly scattering media.">
+            <img src="https://mcrespo.me/publications/nlos-scattering-media/figures/figure3.png" alt=""
+              class="rounded-md w-full" />
+          </figure>
+          <figure data-fancybox="gallery"
+            data-src="https://mcrespo.me/publications/nlos-scattering-media/figures/setup_figure.png"
+            data-caption="Simulated scenes. We use two simulated scenes: (Left) a single planar letter behind the diffuser (green), and (Right) a closed room with a shelf (red) at the back.">
+            <img src="https://mcrespo.me/publications/nlos-scattering-media/figures/setup_figure.png" alt=""
+              class="rounded-md w-full" />
+          </figure>
+
+          <figure data-fancybox="gallery"
+            data-caption="Reconstructions of the Z-LETTER scene in the presence of a scattering medium (µt = 1m−1 and α = 0.83 ) for increasing wavelength λ, with baseline λ0 = 4∆c and ∆c = 0.11m. Higher values of λ result into deeper penetration through the medium, at the cost of lower spatial."
+            data-src="https://mcrespo.me/publications/nlos-scattering-media/figures/figure4.png">
+            <img src="https://mcrespo.me/publications/nlos-scattering-media/figures/figure4.png" alt=""
+              class="rounded-md w-full" />
+          </figure>
+          <figure data-fancybox="gallery"
+            data-caption="Reconstruction of the SHELF scene submerged in a medium of increasing density: µt = 0 (no media), µt = 1, and µt = 1.5. In all cases, the scattering albedo is α = 0.5."
+            data-src="https://mcrespo.me/publications/nlos-scattering-media/figures/figure5.png">
+            <img src="https://mcrespo.me/publications/nlos-scattering-media/figures/figure5.png" alt=""
+              class="rounded-md w-full" />
+          </figure>
+        </div> -->
+        <h2 id="Figures" class="pt-8">Bibtex</h2>
+        <div class="code-container">
+          <div class="copy-btn"><i class="fa-regular fa-copy"></i></div>
+          <pre>
+            <code>@misc{morais2024deepsensev2vvehicletovehiclemultimodalsensing,
+              title={DeepSense-V2V: A Vehicle-to-Vehicle Multi-Modal Sensing, Localization, and Communications Dataset}, 
+              author={Joao Morais and Gouranga Charan and Nikhil Srinivas and Ahmed Alkhateeb},
+              year={2024},
+              eprint={2406.17908},
+              archivePrefix={arXiv},
+              primaryClass={eess.SP},
+              url={https://arxiv.org/abs/2406.17908}, 
+        }</code>
+        </pre>
+        </div>
+      </section>
+    </main>
+  </div>
+  <!-- BG -->
+  <div id="bg" class="publications"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+
+  <script src="../../assets/js/publication.js"></script>
+  <!-- <script src="../../assets/js/main.js"></script> -->
+</body>
+
+</html>
