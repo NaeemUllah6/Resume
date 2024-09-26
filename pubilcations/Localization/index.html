@@ -54,12 +54,12 @@
                   <span>
                     Centro Universitario de la Defensa, Zaragoza</span></span></span>
             </div>
-            <div data-fancybox="gallery"
+            <!-- <div data-fancybox="gallery"
               data-caption="Bistro: Unbiased rendering of a complex scene with global illumination (22 indirect bounces, resulting in a 48-dimensional integration domain). Traditional Monte Carlo-based rendering results in high variance even with importance sampling techniques. In contrast, our technique combines multiple importance sampling with an adaptive piecewise-polynomial control variate (4D in this example): Our control variate closely approximates the low-frequency regions of the signal, while leaving the high-frequency details on the residual, which is estimated using Monte Carlo integration. This results in lower variance with faster convergence. Except for the reference, the images were generated using 512 samples per pixel."
               data-src="https://mcrespo.me/publications/primary-space-cv/figures/fig_bistroTeaser.png">
               <img src="https://mcrespo.me/publications/primary-space-cv/figures/fig_bistroTeaser.png" alt=""
                 class="rounded-md w-full my-4" />
-            </div>
+            </div> -->
           </div>
           <figcaption>
             <p class="italic" style="
@@ -67,7 +67,7 @@
                   text-indent: 1.5rem;
                   margin: 0px 0px 0.5rem;
                 ">
-              <strong> Bistro: </strong> Unbiased rendering of a complex scene
+              <!-- <strong> Bistro: </strong> Unbiased rendering of a complex scene
               with global illumination (22 indirect bounces, resulting in a
               48-dimensional integration domain). Traditional Monte
               Carlo-based rendering results in high variance even with
@@ -80,12 +80,12 @@
               results in lower variance with faster convergence. Except for
               the reference, the images were generated using 512 samples per
               pixel.
-            </p>
+            </p> -->
           </figcaption>
           <div class="resources_publication">
             <h2>Resources</h2>
-            <a class="button_resources" href="data/crespo2021primary.pdf"><i
-                class="button_icon fa fa-file-pdf"></i><span> Paper (24.1 MB) </span></a><a class="button_resources"
+            <a class="button_resources" href="https://arxiv.org/pdf/2403.09614"><i
+                class="button_icon fa fa-file-pdf"></i><span> Paper (4.2 MB) </span></a><a class="button_resources"
               href="data/crespo2021primary_supplemental.pdf"><i class="button_icon fa fa-file-pdf"></i><span>
                 Supplemental (28.3 MB) </span></a><a class="button_resources"
               href="https://github.com/mcrescas/viltrum-mitsuba"><i class="button_icon fa fa-code"></i><span> Code
@@ -99,37 +99,30 @@
                 text-indent: 1.5rem;
                 margin: 0px 0px 0.5rem;
               ">
-            Localization in outdoor wireless systems typically requires transmitting specific reference signals to
-            estimate distance (trilateration methods) or angle (triangulation methods). These cause overhead on
-            communication, need a LoS link to work well, and require multiple base stations, often imposing
-            synchronization or specific hardware requirements. Fingerprinting has none of these drawbacks, but building
-            its database requires high human effort to collect real-world measurements. For a long time, this issue
-            limited the size of databases and thus their performance. This work proposes significantly reducing human
-            effort in building fingerprinting databases by populating them with \textit{digital twin RF maps}. These RF
-            maps are built from ray-tracing simulations on a digital replica of the environment across several frequency
-            bands and beamforming configurations. Online user fingerprints are then matched against this spatial
-            database. The approach was evaluated with practical simulations using realistic propagation models and user
-            measurements. Our experiments show sub-meter localization errors on a NLoS location 95\% of the time using
-            sensible user measurement report sizes. Results highlight the promising potential of the proposed digital
-            twin approach for ubiquitous wide-area 6G localization.
+            Millimeter-wave (mmWave) communication systems
+            rely on narrow beams to achieve sufficient receive signal power.
+            Adjusting these beams is typically associated with large training
+            overhead, which becomes particularly critical for highly-mobile
+            applications. Beam selection can benefit from the knowledge of
+            user positions to reduce the overhead in mmWave beam training.
+            Prior work, however, studied this problem using only synthetic
+            data that does not accurately represent real-world measurements.
+            In this paper, we revisit the position-aided beam prediction
+            problem in light of real-world measurements with commercialoff-the-shelf GPS to derive insights into how much beam training
+            overhead can be saved in practice. We also compare algorithms
+            that perform well in synthetic data but fail to generalize with
+            real data, and attempt to answer what factors cause inference
+            degradation. Further, we propose a machine learning evaluation
+            metric that better captures the end communication system
+            objective. This work aims at closing the gap between reality and
+            simulations in position-aided beam alignment
           </p>
           <p style="
                 text-align: justify;
                 text-indent: 1.5rem;
                 margin: 8px 0px 0.5rem;
               ">
-            Our algorithm is generic, and can be applied to any complex
-            multidimensional integral. We demonstrate its effectiveness with
-            four applications with low dimensionality: transmittance
-            estimation in heterogeneous participating media, low-order
-            scattering in homogeneous media, direct illumination computation,
-            and rendering of distributed effects. Finally, we show how our
-            technique is extensible to integrands of higher dimensionality, by
-            computing the control variate on Monte Carlo estimates of the
-            high-dimensional signal, and accounting for such additional
-            dimensionality on the residual as well. In all cases, we show
-            accurate results and faster convergence compared to previous
-            approaches.
+           
           </p>
           <h2 id="Figures" class="pt-4">Video</h2>
 

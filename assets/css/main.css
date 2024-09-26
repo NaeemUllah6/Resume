@@ -1261,6 +1261,28 @@ ul.icons li a:active {
   border-radius: 10px;
 }
 
+/* /////////////////////////Table/////////////////////////// */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 1em;
+  text-align: left;
+}
+th, td {
+  padding: 12px;
+  border: 1px solid #dddddd;
+}
+th {
+  background-color: #f4f4f4;
+}
+p, ul, li{
+  text-align: justify;
+}
+.table-heading{
+  color: black; padding-top:10px; font-size:20px; font-weight:bold
+}
+/* /////////////////////////Table/////////////////////////// */
 @media only screen and (max-width: 320px) {
   .masonry {
     -moz-column-count: 1;
