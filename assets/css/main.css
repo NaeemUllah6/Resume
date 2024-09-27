@@ -1172,21 +1172,30 @@ ul.icons li a:active {
   border-radius: 5px;
   padding: 8px 7px;
   white-space: nowrap;
-  width: -moz-fit-content;
   width: fit-content;
   align-items: center;
+ width: 132px;
+  display: inline-block;
+  text-align: center;
+}
+.p-margin-about{
+  display: grid;
+  grid-template-columns: 1fr 132px;
+  justify-content: space-between;
+  gap: 15px;
+  text-align: left;
 }
 
 .badge-extra:hover {
   background: rgba(66, 66, 66, 0.5);
 }
 
-.p-margin-about {
+/* .p-margin-about {
   display: flex;
   justify-content: space-between;
   margin-bottom: 5px;
   gap: 15px;
-}
+} */
 
 .small-info {
   color: rgba(255, 255, 255, 0.6) !important;
